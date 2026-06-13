@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CoreStack | Smart AI &amp; Technology Solutions</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#ffdbcf",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#b0c9e8",
+                        "on-surface-variant": "#424656",
+                        "accent-gold": "#D4AF37",
+                        "on-secondary-fixed-variant": "#314863",
+                        "inverse-on-surface": "#eff0fd",
+                        "on-secondary-fixed": "#011d35",
+                        "on-tertiary-container": "#fff7f5",
+                        "on-tertiary-fixed-variant": "#812800",
+                        "on-secondary-container": "#4b637e",
+                        "on-error": "#ffffff",
+                        "primary-container": "#0866ff",
+                        "surface-bright": "#faf8ff",
+                        "primary": "#0050cd",
+                        "on-error-container": "#93000a",
+                        "surface-gray": "#F0F2F5",
+                        "surface": "#faf8ff",
+                        "surface-container": "#ecedfa",
+                        "success-green": "#42B72A",
+                        "on-surface": "#191b24",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#2e303a",
+                        "tertiary-fixed-dim": "#ffb59b",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#b3c5ff",
+                        "background": "#faf8ff",
+                        "tertiary": "#a13400",
+                        "surface-tint": "#0054d7",
+                        "on-tertiary-fixed": "#380d00",
+                        "primary-fixed": "#dbe1ff",
+                        "text-muted": "#65676B",
+                        "surface-dim": "#d8d9e6",
+                        "on-background": "#191b24",
+                        "on-primary-container": "#f9f7ff",
+                        "secondary-fixed": "#d1e4ff",
+                        "outline": "#727687",
+                        "surface-container-highest": "#e1e2ee",
+                        "tertiary-container": "#cb4400",
+                        "secondary-container": "#c7dfff",
+                        "outline-variant": "#c2c6d8",
+                        "on-primary-fixed-variant": "#003fa5",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b3c5ff",
+                        "surface-variant": "#e1e2ee",
+                        "secondary": "#49607c",
+                        "surface-container-low": "#f2f3ff",
+                        "surface-container-high": "#e6e7f4",
+                        "on-primary-fixed": "#00184a",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "margin-desktop": "40px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-lg": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["12px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0px 10px 30px rgba(16, 42, 67, 0.05);
+        }
+        .glass-card:hover {
+            box-shadow: 0px 15px 40px rgba(16, 42, 67, 0.1);
+            border-bottom: 2px solid #0050cd;
+        }
+        .glass-nav {
+            background: rgba(250, 248, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar Component -->
+<nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between h-20">
+<!-- Brand -->
+<a class="flex items-center gap-2 group" href="#">
+<img alt="CoreStack Logo" class="h-8 w-auto rounded-sm group-hover:opacity-80 transition-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOxmEQqar9Rpfz0skbcug12ObvFjuFiz2_cdrprTIC6kwq2vM1tRzdZCri7yXsRi2PLplxJIEXOTVZvG03Fofv_tvCsx3_YkRjXX7q3Q48ZU-thEVGx0dE3Vxz8BehARlG8-L9Y-0_Wgu0GeLffsirGFuV94Yn80-kAnggaVOcco-rwFiHLdwYmEVPqzMvn3dV-WX19lUKogy8x_DxVh4ylb3bk745Dh2BTXqyU0vHVDJ9z8d7A2jOp80xAH37lHu-NY4anSVnOrM"/>
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tight">CoreStack</span>
+</a>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 transition-all duration-300" href="#home">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:opacity-80 pb-1" href="#services">Services</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:opacity-80 pb-1" href="#about">About</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:opacity-80 pb-1" href="#team">Team</a>
+<a class="text-on-surface-variant hover:text-primary transition-all duration-300 hover:opacity-80 pb-1" href="#contact">Contact</a>
+</div>
+<!-- Trailing Action -->
+<div class="hidden md:flex items-center">
+<a class="bg-primary hover:bg-surface-tint text-on-primary px-6 py-2.5 rounded-full font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md" href="#contact">
+                    Contact Us
+                </a>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-surface p-2 rounded-lg hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+</button>
+</div>
+</nav>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative overflow-hidden pt-24 pb-32 lg:pt-32 lg:pb-40 px-margin-mobile md:px-margin-desktop" id="home">
+<div class="absolute inset-0 bg-gradient-to-br from-surface-container-low via-background to-primary-fixed-dim/20 -z-10"></div>
+<!-- Decorative Elements -->
+<div class="absolute top-20 right-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10"></div>
+<div class="absolute bottom-10 left-10 w-96 h-96 bg-secondary-fixed/30 rounded-full blur-3xl -z-10"></div>
+<div class="max-w-container-max mx-auto grid lg:grid-cols-2 gap-12 lg:gap-gutter items-center">
+<div class="max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary-fixed/50 text-on-primary-fixed border border-primary-fixed-dim mb-6">
+<span class="material-symbols-outlined text-[18px]">rocket_launch</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Enterprise Grade</span>
+</div>
+<h1 class="font-display-lg text-headline-lg-mobile lg:text-display-lg text-on-surface mb-6">
+                        Smart AI &amp; Technology Solutions for Growing Businesses
+                    </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-xl">
+                        Accelerate your digital transformation. We integrate cutting-edge AI, robust cloud architectures, and modern digital workflows to optimize your operations and scale your business effortlessly.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<a class="bg-primary hover:bg-surface-tint text-on-primary px-8 py-3.5 rounded-full font-body-md font-medium text-center transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md flex justify-center items-center gap-2" href="#contact">
+                            Get Started
+                            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+<a class="bg-transparent border border-primary text-primary hover:bg-primary-fixed/20 px-8 py-3.5 rounded-full font-body-md font-medium text-center transition-all duration-300 active:scale-95" href="#services">
+                            Learn More
+                        </a>
+</div>
+</div>
+<!-- Hero Visual (Abstract Dashboard/Data representation) -->
+<div class="relative lg:h-[600px] w-full rounded-2xl overflow-hidden glass-card p-4 border border-outline-variant/30 flex items-center justify-center bg-surface-container-lowest/50">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary-fixed/20 to-transparent"></div>
+<img alt="Abstract data dashboard interface showing modern analytics, line charts, and network nodes in a clean, light-mode design with subtle blue accents. The visual represents enterprise tech, AI processing, and cloud architecture in a corporate setting." class="w-full h-full object-cover rounded-xl shadow-sm mix-blend-overlay opacity-80" data-alt="Abstract data dashboard interface showing modern analytics, line charts, and network nodes in a clean, light-mode design with subtle blue accents. The visual represents enterprise tech, AI processing, and cloud architecture in a corporate setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9HWfL4aSRNMfeqe1Js-tibi33KcgMpguKCeBCTSjY0VAgfKXoiEZotz2QoZofseUPDPzNjg8W63DsdFdsHm3_INYWVwjB9-uFBXi3uhELnF5-7ucfXKX65Wg3pLYnKw00lRabKaoILZVRjAvmJ2RX-Hh43b7uneokdvVrB4lhBu80IhGRmyHAYNE6DAjy27hamfiWMDKUQMhMFlFvHGEOLuCQN8Dqq0TGOd4en5wHn1L6J1qyiZoPuWxkabQt5TSjeidqd6tZcOo"/>
+<!-- Floating UI Elements -->
+<div class="absolute top-10 left-10 glass-card p-4 rounded-xl flex items-center gap-4 animate-pulse">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">System Status</div>
+<div class="font-semibold text-on-surface">Optimal</div>
+</div>
+</div>
+<div class="absolute bottom-20 right-10 glass-card p-4 rounded-xl">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm text-on-surface-variant">AI Processing</span>
+<span class="text-success-green font-label-sm text-label-sm">99.9%</span>
+</div>
+<div class="w-32 h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-11/12 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About / Highlights Section -->
+<section class="py-24 bg-surface px-margin-mobile md:px-margin-desktop" id="about">
+<div class="max-w-container-max mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Built for Innovation, Growth, and Smarter Operations</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        CoreStack bridges the gap between complex technology and practical business application. We engineer solutions that are as intuitive as they are powerful.
+                    </p>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card p-8 rounded-2xl transition-all duration-300">
+<div class="w-14 h-14 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed mb-6">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">AI-Powered Solutions</h3>
+<p class="text-on-surface-variant text-body-md">Leverage machine learning to unlock insights from your data, personalize customer experiences, and predict market trends with unparalleled accuracy.</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card p-8 rounded-2xl transition-all duration-300">
+<div class="w-14 h-14 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed mb-6">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">account_tree</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Business Automation</h3>
+<p class="text-on-surface-variant text-body-md">Streamline repetitive tasks and complex workflows. Our automation frameworks reduce human error, cut operational costs, and free your team to focus on strategy.</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card p-8 rounded-2xl transition-all duration-300">
+<div class="w-14 h-14 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed mb-6">
+<span class="material-symbols-outlined text-[28px]" style="font-variation-settings: 'FILL' 1;">devices</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-3">Modern Digital Systems</h3>
+<p class="text-on-surface-variant text-body-md">Upgrade legacy infrastructure to agile, scalable cloud environments. We build resilient systems designed to adapt to tomorrow's technological demands.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section (Bento Grid Style) -->
+<section class="py-24 bg-surface-container-lowest px-margin-mobile md:px-margin-desktop" id="services">
+<div class="max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-2 block">Our Expertise</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">Comprehensive Tech Capabilities</h2>
+</div>
+<a class="text-primary font-medium hover:underline flex items-center gap-1" href="#contact">
+                        Discuss your project <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[280px]">
+<!-- Service 1: Large -->
+<div class="glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer lg:col-span-2 relative overflow-hidden">
+<div class="absolute right-0 bottom-0 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform translate-x-1/4 translate-y-1/4">
+<span class="material-symbols-outlined text-[200px]">smart_toy</span>
+</div>
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4 z-10">
+<span class="material-symbols-outlined">smart_toy</span>
+</div>
+<div class="z-10">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">AI Automation</h3>
+<p class="text-on-surface-variant text-body-md max-w-md">Custom AI models and intelligent bots designed to handle customer service, data entry, and predictive maintenance autonomously.</p>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">cloud</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Cloud &amp; Tech</h3>
+<p class="text-on-surface-variant text-body-md">Secure, scalable cloud migration and infrastructure management tailored for high-availability enterprise needs.</p>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">campaign</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Digital Marketing</h3>
+<p class="text-on-surface-variant text-body-md">Data-driven marketing strategies leveraging analytics to maximize ROI and pinpoint target demographics.</p>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="glass-card rounded-2xl p-8 flex flex-col justify-between group cursor-pointer">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">model_training</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Process Optimization</h3>
+<p class="text-on-surface-variant text-body-md">End-to-end operational auditing and restructuring using Lean principles and modern software tools.</p>
+</div>
+</div>
+<!-- Service 5 & 6 combo in one larger block -->
+<div class="glass-card rounded-2xl p-0 flex flex-col md:flex-row lg:col-span-2 overflow-hidden group">
+<div class="flex-1 p-8 border-b md:border-b-0 md:border-r border-outline-variant/30 flex flex-col justify-between">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">code</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Web Development</h3>
+<p class="text-on-surface-variant text-body-md">High-performance, accessible, and secure web applications built on modern JavaScript frameworks.</p>
+</div>
+</div>
+<div class="flex-1 p-8 flex flex-col justify-between bg-surface-bright/50">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined">insights</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-surface mb-2">Data Insights</h3>
+<p class="text-on-surface-variant text-body-md">Transform raw data into actionable intelligence with interactive dashboards and real-time reporting.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Team Section -->
+<section class="py-24 bg-surface px-margin-mobile md:px-margin-desktop" id="team">
+<div class="max-w-container-max mx-auto">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-4">Meet the Team Behind CoreStack</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        Our multidisciplinary team of engineers, strategists, and creatives are dedicated to pushing the boundaries of what's possible.
+                    </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Team Member 1 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of the CEO" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmS_oWqNWOCLwzjQx3Ilky4nZ9YaX3aDMgTrRyzEF9ndzPpsocPKJ2QBZQNy3rz9hljzBiqQExaiDUcjEI91sD8osonYsGUQDoYVCqyLCrq1FEEFCx6-VrACUQDWuBHQAKGPSEQmhnkWbYOEEZZqn6PZXIhkHbiJ_JDMrFvbgLxEvuLG9awdllwba9FTZc8AV-MkhmscLcVcdDxnSXwrk-fTBqq-ScDWB5lklTtAtHxKGj0sXqYgOZyN4ezjXaJ2e6ReHiGQCvQks"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">CEO</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Executive Leadership</p>
+<p class="text-body-md text-on-surface-variant text-sm">Leads CoreStack’s strategic vision, partnerships, and long-term business growth.</p>
+</div>
+</div>
+<!-- Team Member 2 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of the CTO" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfA6ONjBNg3-MLUkXr0lDRVAOT-HWxXSv-f5Obcxuw7A5XGJ8TZLHQD8npnLcvYY_reQW8kOvwNsVE4LUF6kqeuNNDOoe_vBAUjwgNKduri5ZukBECsAS_4ZYkTMTkP4a37u_eT-uFOhuTstr4xzN_HCk9EO04cjtOK02z66qp-HCLiSsiZxxGyXiVA-9GAWZtSAz1wN38M4lznfTfJ-EkukF8BjxVHI8eSxxkPEX5u6EMcmgkF-T6xbYDNa4bs58LF7Dp9SDmwtY"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">CTO</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Technology &amp; Architecture</p>
+<p class="text-body-md text-on-surface-variant text-sm">Oversees technology direction, system architecture, and modern digital solutions.</p>
+</div>
+</div>
+<!-- Team Member 3 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of Marketing Specialist" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm698T9CfUYEGg_tMseH9RXckysW8tve4SA_HQvgCm2N78oHZ5vO-VtOOkJvfKWLdbQC9dsVlyPli4uJJXIAReB7WwKMHfYU7oiyjbHyOvSH7O9MAyKnsAeLBbbU3OokBTNNrstFVZnR7ayvZUe-2Af6y9CXDxFD0V_bBx8wFEVKaYtXc84YE7BABTv2khnJN6qyTPsCdL7Qy8IzDbWMOZrE_5MRpFogJZbFtw1atItZSfnKX04iSzKBfOXKDJ2Iz4LyPVAfUrx4Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">Marketing Specialist</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Brand &amp; Content</p>
+<p class="text-body-md text-on-surface-variant text-sm">Supports brand visibility, content strategy, customer engagement, and digital campaigns.</p>
+</div>
+</div>
+<!-- Team Member 4 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of Marketing Manager" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAj183YUYEs3xIaTSMucKl7n-paZeo6l_Y1iGiCQ3anhylVPj6se8jbRGYLfvgh03mlodmPl9DWhQhle2TzelRYljvTPdNMjcMARniRbyes3VE9UWsaufMqW3xsRA6Z8v1gcOoJKyUSt7D3PBeIOeCDu7T3qnCr9Ve4jFZZ2xWunE04JpoPAzv3_Ps5CDmoJxa2PdAaS9sBTWsFaIANFCMwYbfcKYQKK2A4h-qUO7NfgicOZxBCOZ2wk_T3eAx7apPIdbKvJPLKwqI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">Marketing Manager</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Strategy &amp; Growth</p>
+<p class="text-body-md text-on-surface-variant text-sm">Manages marketing strategy, campaign execution, brand positioning, and growth initiatives.</p>
+</div>
+</div>
+<!-- Team Member 5 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of AI Automation Engineer" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7N_uvDtpiyN9hwRIxewwpg0ZuWFAeKu72tib3HzQORKXcNTS1ZNIJ_TRtci8vsqq2UiK9KAutwGkCq_LJhw_GXB6RKjNju9T5FNQOKo-36vkNjVES7_TruHoloy1BFnG0KKUYa7DOVFiVt9-ka2s979SKuOkwhjRMghwfmI4EGQLUAftfnvbsDbPoIAZ4vFCDjH50wBF2S29QkYFtS7oD6bp0qWJS2p3XiiBXx5GWQtXy-v9CWtGbWEo8YxJ-4Xoik0HNb0iHHl4"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">AI Automation Engineer</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Engineering</p>
+<p class="text-body-md text-on-surface-variant text-sm">Builds intelligent automation workflows that improve efficiency and reduce manual tasks.</p>
+</div>
+</div>
+<!-- Team Member 6 -->
+<div class="glass-card rounded-2xl overflow-hidden group">
+<div class="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
+<img alt="Portrait of Marketing Specialist" class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFdUh7b777lTWjF3-_BhzGqagHfgs79c1VlRc4y5tj-a2br4uXGCJ1PGOgmZ6vpZ2BxyoGsf4RL4RErsXIux6mIKGWm26eAQexlpNSzaNy0-9TvKo_kQptXnO-QFrDAw-d5jedzd4FLFcZbooc6uyXpw0RcHNkyCkUnrkOJbu31X1oZp3eaTJQ60cgmKO15VthGvgEJnvvLKzR5h5yO5gQaKf4ZLYxq_zf6DWidaCdVYPFpfpI4BqIRoAZB4llXczGRXYM0XcuRRU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+<div class="flex gap-3">
+<a class="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[18px]">mail</span>
+</a>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-headline-md text-lg font-semibold text-on-surface mb-1">Marketing Specialist</h3>
+<p class="text-label-sm font-label-sm text-primary mb-3">Research &amp; Leads</p>
+<p class="text-body-md text-on-surface-variant text-sm">Focuses on market research, lead generation, digital communication, and campaign support.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-24 bg-surface-container-lowest px-margin-mobile md:px-margin-desktop relative overflow-hidden">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlN2U4ZjIiLz48L3N2Zz4=')] [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="text-center mb-16">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-2 block">Methodology</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">How We Work</h2>
+</div>
+<div class="grid md:grid-cols-4 gap-8 relative">
+<!-- Connecting Line (Desktop only) -->
+<div class="hidden md:block absolute top-12 left-1/8 right-1/8 h-0.5 bg-outline-variant/30 -z-10 w-3/4 mx-auto"></div>
+<!-- Step 1 -->
+<div class="text-center relative">
+<div class="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">search</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-2">1. Discover</h3>
+<p class="text-on-surface-variant text-sm">We analyze your current systems, data structures, and business goals.</p>
+</div>
+<!-- Step 2 -->
+<div class="text-center relative">
+<div class="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">architecture</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-2">2. Plan</h3>
+<p class="text-on-surface-variant text-sm">Developing a strategic roadmap and architectural blueprint for implementation.</p>
+</div>
+<!-- Step 3 -->
+<div class="text-center relative">
+<div class="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">terminal</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-2">3. Build</h3>
+<p class="text-on-surface-variant text-sm">Agile development, seamless integration, and rigorous quality assurance testing.</p>
+</div>
+<!-- Step 4 -->
+<div class="text-center relative">
+<div class="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">trending_up</span>
+</div>
+<h3 class="font-headline-md text-xl text-on-surface mb-2">4. Improve</h3>
+<p class="text-on-surface-variant text-sm">Continuous monitoring, optimization, and scaling as your business evolves.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Contact Section -->
+<section class="py-24 bg-surface px-margin-mobile md:px-margin-desktop" id="contact">
+<div class="max-w-container-max mx-auto glass-card rounded-3xl p-8 md:p-16 border-t border-primary/20 relative overflow-hidden">
+<!-- Background decoration -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-fixed/30 to-transparent -z-10"></div>
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface mb-6">Ready to Build Smarter with CoreStack?</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+                            Transform your operations today. Schedule a consultation with our tech experts to discover how our AI and cloud solutions can accelerate your growth.
+                        </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Email Us</p>
+<p class="font-medium text-on-surface">hello@corestack.tech</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Headquarters</p>
+<p class="font-medium text-on-surface">Innovation District, Tech City</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Contact Form -->
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20">
+<form class="space-y-6">
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-2">First Name</label>
+<input class="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Jane" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-2">Last Name</label>
+<input class="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Doe" type="text"/>
+</div>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-2">Work Email</label>
+<input class="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="jane@company.com" type="email"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-2">Company</label>
+<input class="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Acme Corp" type="text"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-2">Message</label>
+<textarea class="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] resize-none" placeholder="Tell us about your project..." rows="4"></textarea>
+</div>
+<button class="w-full bg-primary hover:bg-surface-tint text-on-primary py-3.5 rounded-lg font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md" type="button">
+                                Send Message
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="w-full border-t border-outline-variant/30 bg-secondary-fixed dark:bg-on-secondary-fixed">
+<div class="max-w-container-max mx-auto px-margin-desktop py-16 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-gutter">
+<div class="col-span-2 lg:col-span-2 flex flex-col gap-6">
+<a class="flex items-center gap-2" href="#">
+<img alt="CoreStack Logo" class="h-8 w-auto brightness-0 invert opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOxmEQqar9Rpfz0skbcug12ObvFjuFiz2_cdrprTIC6kwq2vM1tRzdZCri7yXsRi2PLplxJIEXOTVZvG03Fofv_tvCsx3_YkRjXX7q3Q48ZU-thEVGx0dE3Vxz8BehARlG8-L9Y-0_Wgu0GeLffsirGFuV94Yn80-kAnggaVOcco-rwFiHLdwYmEVPqzMvn3dV-WX19lUKogy8x_DxVh4ylb3bk745Dh2BTXqyU0vHVDJ9z8d7A2jOp80xAH37lHu-NY4anSVnOrM"/>
+<span class="font-headline-md text-headline-md font-bold text-on-secondary-fixed dark:text-secondary-fixed">CoreStack</span>
+</a>
+<p class="text-on-secondary-fixed-variant dark:text-secondary-fixed-dim text-sm max-w-xs font-body-md text-body-md">
+                    Empowering modern enterprises with intelligent automation and scalable cloud solutions.
+                </p>
+<p class="text-on-secondary-fixed-variant dark:text-secondary-fixed-dim text-sm mt-auto font-body-md text-body-md">
+                    © 2024 CoreStack Enterprise. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-on-secondary-fixed dark:text-secondary-fixed opacity-70">Platform</h4>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">AI Automation</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Cloud Infrastructure</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Data Analytics</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-on-secondary-fixed dark:text-secondary-fixed opacity-70">Company</h4>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">About Us</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Careers</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-on-secondary-fixed dark:text-secondary-fixed opacity-70">Legal</h4>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Security</a>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-label-sm text-label-sm uppercase tracking-wider text-on-secondary-fixed dark:text-secondary-fixed opacity-70">Support</h4>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Help Center</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Status</a>
+<a class="font-body-md text-body-md text-on-secondary-fixed-variant dark:text-secondary-fixed-dim hover:text-primary dark:hover:text-inverse-primary transition-colors cursor-pointer" href="#">Documentation</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple script for nav styling on scroll
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+                nav.style.background = 'rgba(250, 248, 255, 0.95)';
+            } else {
+                nav.classList.remove('shadow-sm');
+                nav.style.background = 'rgba(250, 248, 255, 0.85)';
+            }
+        });
+    </script>
+</body></html>
