@@ -1,4 +1,6 @@
-export function HeroScreen() {
+import { heroMetrics } from '@/data/homeData';
+
+export function HeroSection() {
   return (
     <section id="home" className="relative overflow-hidden pt-28 pb-32 lg:pt-36 lg:pb-40 px-margin-mobile md:px-margin-desktop bg-surface-bright">
       {/* Background & Lighting Elements */}
@@ -41,15 +43,17 @@ export function HeroScreen() {
 
           {/* Key Metrics */}
           <div className="flex items-center gap-8 pt-6 border-t border-outline-variant/30">
-             <div>
-               <div className="font-display-lg text-[28px] leading-none font-bold text-on-surface mb-1">99.9%</div>
-               <div className="text-[11px] font-label-sm text-on-surface-variant uppercase tracking-widest">Uptime SLA</div>
-             </div>
-             <div className="w-px h-10 bg-outline-variant/40"></div>
-             <div>
-               <div className="font-display-lg text-[28px] leading-none font-bold text-on-surface mb-1">24/7</div>
-               <div className="text-[11px] font-label-sm text-on-surface-variant uppercase tracking-widest">Expert Support</div>
-             </div>
+            {heroMetrics.map((metric, i) => (
+              <div key={metric.label} className="flex items-center gap-8">
+                <div>
+                  <div className="font-display-lg text-[28px] leading-none font-bold text-on-surface mb-1">{metric.value}</div>
+                  <div className="text-[11px] font-label-sm text-on-surface-variant uppercase tracking-widest">{metric.label}</div>
+                </div>
+                {i < heroMetrics.length - 1 && (
+                  <div className="w-px h-10 bg-outline-variant/40"></div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
 

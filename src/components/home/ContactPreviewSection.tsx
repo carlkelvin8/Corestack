@@ -1,6 +1,8 @@
 'use client';
 
-export function ContactScreen() {
+import { companyDetails } from '@/data/companyData';
+
+export function ContactPreviewSection() {
   return (
     <section id="contact" className="py-24 bg-surface px-margin-mobile md:px-margin-desktop">
       <div className="max-w-container-max mx-auto glass-card rounded-3xl p-8 md:p-16 border-t border-primary/20 relative overflow-hidden">
@@ -16,22 +18,22 @@ export function ContactScreen() {
 
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined">mail</span>
                 </div>
                 <div className="min-w-0">
                   <p className="text-label-sm font-label-sm text-on-surface-variant">Email Us</p>
-                  <p className="font-medium text-on-surface break-all text-sm">corestacktechnologiesph@gmail.com</p>
+                  <p className="font-medium text-on-surface break-all text-sm">{companyDetails.email}</p>
                 </div>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
+                <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0">
                   <span className="material-symbols-outlined">location_on</span>
                 </div>
                 <div>
                   <p className="text-label-sm font-label-sm text-on-surface-variant">Headquarters</p>
-                  <p className="font-medium text-on-surface">SJDM Bulacan</p>
+                  <p className="font-medium text-on-surface">{companyDetails.location}</p>
                 </div>
               </div>
             </div>

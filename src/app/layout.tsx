@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Hanken_Grotesk, JetBrains_Mono } from "next/font/google";
-import { LenisProvider } from "@/components/LenisProvider";
+import { LenisProvider } from "@/components/common/LenisProvider";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
+import { Navigation } from "@/components/layout/Navigation";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -41,7 +44,12 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
         <LenisProvider>
-          {children}
+          <Navigation />
+          <ScrollToTop />
+          <main className="flex flex-col min-h-screen">
+            {children}
+          </main>
+          <Footer />
         </LenisProvider>
       </body>
     </html>
