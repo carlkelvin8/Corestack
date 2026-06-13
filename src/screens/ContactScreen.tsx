@@ -19,9 +19,9 @@ export function ContactScreen() {
                 <div className="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary">
                   <span className="material-symbols-outlined">mail</span>
                 </div>
-                <div>
+                <div className="min-w-0">
                   <p className="text-label-sm font-label-sm text-on-surface-variant">Email Us</p>
-                  <p className="font-medium text-on-surface">corestacktechnologiesph@gmail.com</p>
+                  <p className="font-medium text-on-surface break-all text-sm">corestacktechnologiesph@gmail.com</p>
                 </div>
               </div>
 

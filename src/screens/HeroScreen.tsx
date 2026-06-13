@@ -39,15 +39,16 @@ export function HeroScreen() {
             </a>
           </div>
 
-          {/* Social Proof */}
-          <div className="flex items-center gap-4 pt-6 border-t border-outline-variant/30">
-             <div className="flex -space-x-3">
-                <div className="w-10 h-10 rounded-full bg-surface-container-high border-2 border-surface flex items-center justify-center text-xs font-bold text-primary">AC</div>
-                <div className="w-10 h-10 rounded-full bg-primary-fixed border-2 border-surface flex items-center justify-center text-xs font-bold text-on-primary-fixed">T&T</div>
-                <div className="w-10 h-10 rounded-full bg-secondary-container border-2 border-surface flex items-center justify-center text-xs font-bold text-on-secondary-container">NX</div>
+          {/* Key Metrics */}
+          <div className="flex items-center gap-8 pt-6 border-t border-outline-variant/30">
+             <div>
+               <div className="font-display-lg text-[28px] leading-none font-bold text-on-surface mb-1">99.9%</div>
+               <div className="text-[11px] font-label-sm text-on-surface-variant uppercase tracking-widest">Uptime SLA</div>
              </div>
-             <div className="text-sm font-body-md text-on-surface-variant">
-               <span className="font-semibold text-on-surface">Trusted by innovative teams</span> worldwide
+             <div className="w-px h-10 bg-outline-variant/40"></div>
+             <div>
+               <div className="font-display-lg text-[28px] leading-none font-bold text-on-surface mb-1">24/7</div>
+               <div className="text-[11px] font-label-sm text-on-surface-variant uppercase tracking-widest">Expert Support</div>
              </div>
           </div>
         </div>

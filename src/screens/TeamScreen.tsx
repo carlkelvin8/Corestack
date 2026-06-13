@@ -1,3 +1,6 @@
+'use client';
+import { ScrollReveal } from '@/components/ScrollReveal';
+
 export function TeamScreen() {
   const teamMembers = [
     {
@@ -56,7 +59,7 @@ export function TeamScreen() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
-            <div key={index} className="glass-card rounded-2xl overflow-hidden group">
+            <ScrollReveal key={index} index={index % 3} className="glass-card rounded-2xl overflow-hidden group">
               <div className="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
                 <img 
                   src={member.image} 
@@ -65,9 +68,17 @@ export function TeamScreen() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="flex gap-3">
-                    <a href="#" className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors">
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('contact');
+                        if (!el) return;
+                        window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
+                      }}
+                      aria-label="Contact this team member"
+                      className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors"
+                    >
                       <span className="material-symbols-outlined text-[18px]">mail</span>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -81,7 +92,7 @@ export function TeamScreen() {
                   {member.description}
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

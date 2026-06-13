@@ -1,3 +1,5 @@
+import { ScrollReveal } from '@/components/ScrollReveal';
+
 export function ProcessScreen() {
   return (
     <section id="process" className="py-24 bg-surface px-margin-mobile md:px-margin-desktop relative overflow-hidden">
@@ -14,40 +16,40 @@ export function ProcessScreen() {
           <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 bg-outline-variant/30 -z-10 w-3/4 mx-auto"></div>
 
           {/* Step 1 */}
-          <div className="text-center relative">
+          <ScrollReveal index={0} className="text-center relative">
             <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
               <span className="material-symbols-outlined text-[32px]">search</span>
             </div>
             <h3 className="font-headline-md text-xl text-on-surface mb-2">1. Discover</h3>
             <p className="text-on-surface-variant text-sm">We analyze your current systems, data structures, and business goals.</p>
-          </div>
+          </ScrollReveal>
 
           {/* Step 2 */}
-          <div className="text-center relative">
+          <ScrollReveal index={1} className="text-center relative">
             <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
               <span className="material-symbols-outlined text-[32px]">architecture</span>
             </div>
             <h3 className="font-headline-md text-xl text-on-surface mb-2">2. Plan</h3>
             <p className="text-on-surface-variant text-sm">Developing a strategic roadmap and architectural blueprint for implementation.</p>
-          </div>
+          </ScrollReveal>
 
           {/* Step 3 */}
-          <div className="text-center relative">
+          <ScrollReveal index={2} className="text-center relative">
             <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
               <span className="material-symbols-outlined text-[32px]">terminal</span>
             </div>
             <h3 className="font-headline-md text-xl text-on-surface mb-2">3. Build</h3>
             <p className="text-on-surface-variant text-sm">Agile development, seamless integration, and rigorous quality assurance testing.</p>
-          </div>
+          </ScrollReveal>
 
           {/* Step 4 */}
-          <div className="text-center relative">
+          <ScrollReveal index={3} className="text-center relative">
             <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
               <span className="material-symbols-outlined text-[32px]">trending_up</span>
             </div>
             <h3 className="font-headline-md text-xl text-on-surface mb-2">4. Improve</h3>
             <p className="text-on-surface-variant text-sm">Continuous monitoring, optimization, and scaling as your business evolves.</p>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>
