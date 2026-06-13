@@ -15,9 +15,8 @@ export function HelpCenterScreen() {
       <CTASection 
         title="Still Have Questions?"
         description="Our team is ready to help. Reach out and we'll get back to you within 24–48 business hours."
-        buttonText="Email Us"
-        buttonHref="mailto:corestacktechph@gmail.com"
-        buttonIcon="mail"
+        buttonText="Contact Us"
+        buttonHref="/#contact"
       />
     </div>
   );

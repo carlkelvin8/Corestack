@@ -1,7 +1,9 @@
 'use client';
 
+import { usePathname, useRouter } from 'next/navigation';
 import { useScroll } from '@/hooks/useScroll';
 import { useActiveSection } from '@/hooks/useActiveSection';
+import { useLenis } from 'lenis/react';
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -14,11 +16,25 @@ const navItems = [
 export function Navigation() {
   const isScrolled = useScroll(10);
   const activeSection = useActiveSection(navItems.map(item => item.id));
+  const pathname = usePathname();
+  const router = useRouter();
+  const lenis = useLenis();
+
   function scrollToSection(id: string) {
+    if (pathname !== '/') {
+      // Store target in sessionStorage and navigate to home WITHOUT hash
+      sessionStorage.setItem('scrollTarget', id);
+      router.push('/');
+      return;
+    }
     const el = document.getElementById(id);
     if (!el) return;
-    const top = el.getBoundingClientRect().top + window.scrollY - 80;
-    window.scrollTo({ top, behavior: 'smooth' });
+    if (lenis) {
+      lenis.scrollTo(el, { offset: -80 });
+    } else {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
   }
 
   return (
@@ -43,7 +59,7 @@ export function Navigation() {
             <button
               key={item.id}
               onClick={() => scrollToSection(item.id)}
-              className={`pb-1 transition-all duration-300 hover:opacity-80 ${activeSection === item.id || (activeSection === '' && item.id === 'home') ? 'text-primary font-semibold border-b-2 border-primary' : 'text-on-surface-variant hover:text-primary'}`}
+              className={`pb-1 transition-all duration-300 hover:opacity-80 ${pathname === '/' && (activeSection === item.id || (activeSection === '' && item.id === 'home')) ? 'text-primary font-semibold border-b-2 border-primary' : 'text-on-surface-variant hover:text-primary'}`}
             >
               {item.label}
             </button>

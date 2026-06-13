@@ -19,8 +19,7 @@ export function PrivacyPolicyScreen() {
         title="Questions About Your Privacy?"
         description="Contact our team and we will respond within 24–48 business hours."
         buttonText="Contact Us"
-        buttonHref="mailto:corestacktechph@gmail.com"
-        buttonIcon="mail"
+        buttonHref="/#contact"
       />
     </div>
   );

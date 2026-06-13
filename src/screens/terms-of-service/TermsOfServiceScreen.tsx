@@ -19,8 +19,7 @@ export function TermsOfServiceScreen() {
         title="Questions About Our Terms?"
         description="Contact our team and we will respond within 24–48 business hours."
         buttonText="Contact Us"
-        buttonHref="mailto:corestacktechph@gmail.com"
-        buttonIcon="mail"
+        buttonHref="/#contact"
       />
     </div>
   );

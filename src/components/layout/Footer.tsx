@@ -1,13 +1,20 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useLenis } from 'lenis/react';
 
 export function Footer() {
   const pathname = usePathname();
+  const router = useRouter();
   const lenis = useLenis();
 
   function scrollToSection(id: string) {
+    if (pathname !== '/') {
+      // Store target in sessionStorage and navigate to home WITHOUT hash
+      sessionStorage.setItem('scrollTarget', id);
+      router.push('/');
+      return;
+    }
     const el = document.getElementById(id);
     if (!el) return;
     if (lenis) {

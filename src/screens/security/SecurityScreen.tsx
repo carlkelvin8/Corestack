@@ -20,9 +20,8 @@ export function SecurityScreen() {
       <CTASection 
         title="Have a Security Concern?"
         description="If you discover a vulnerability or have a security concern, please contact us immediately."
-        buttonText="Report an Issue"
-        buttonHref="mailto:corestacktechph@gmail.com"
-        buttonIcon="mail"
+        buttonText="Contact Us"
+        buttonHref="/#contact"
       />
     </div>
   );

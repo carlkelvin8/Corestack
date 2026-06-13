@@ -1,47 +1,64 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
-
 import { useLenis } from 'lenis/react';
 
 /**
  * Handles two behaviors on every route change:
- * 1. Scrolls to top if there is no hash in the URL.
- * 2. If there IS a hash (e.g., /#about, /#contact), smoothly scrolls to that section.
+ * 1. Scrolls to top if there is no pending scroll target.
+ * 2. If a scroll target exists (via sessionStorage or URL hash),
+ *    smoothly scrolls to that section after the page renders.
+ *
+ * Uses sessionStorage as the reliable cross-page scroll signal to avoid
+ * conflicts between native browser hash navigation, Next.js scroll handling,
+ * and Lenis smooth scroll.
  */
 export function ScrollToTop() {
   const pathname = usePathname();
   const lenis = useLenis();
+  const lenisRef = useRef(lenis);
+
+  // Keep ref current so the timeout always reads the latest lenis instance
+  useEffect(() => {
+    lenisRef.current = lenis;
+  }, [lenis]);
 
   useEffect(() => {
-    // Need to wait for DOM and lenis to be ready
-    const timeout = setTimeout(() => {
-      const hash = window.location.hash;
+    // Read sessionStorage target immediately (set by CTASection / Navigation before navigating)
+    const sessionTarget = sessionStorage.getItem('scrollTarget');
+    if (sessionTarget) {
+      sessionStorage.removeItem('scrollTarget'); // clear immediately so it isn't reused
+    }
 
-      if (hash) {
-        // Scroll to the target section
-        const id = hash.replace('#', '');
-        const el = document.getElementById(id);
+    // Also fall back to URL hash if no sessionStorage target
+    const hashTarget = window.location.hash ? window.location.hash.replace('#', '') : null;
+    const target = sessionTarget ?? hashTarget;
+
+    const timeout = setTimeout(() => {
+      const currentLenis = lenisRef.current;
+
+      if (target) {
+        const el = document.getElementById(target);
         if (el) {
-          if (lenis) {
-            lenis.scrollTo(el, { offset: -80 });
+          if (currentLenis) {
+            currentLenis.scrollTo(el, { offset: -80 });
           } else {
             const top = el.getBoundingClientRect().top + window.scrollY - 80;
             window.scrollTo({ top, behavior: 'smooth' });
           }
         }
       } else {
-        // No hash — go to top instantly
-        if (lenis) {
-          lenis.scrollTo(0, { immediate: true });
+        // No target — scroll to very top
+        if (currentLenis) {
+          currentLenis.scrollTo(0, { immediate: true });
         } else {
           window.scrollTo({ top: 0, behavior: 'instant' });
         }
       }
-    }, 100);
+    }, 300);
 
     return () => clearTimeout(timeout);
-  }, [pathname, lenis]);
+  }, [pathname]); // Only pathname — lenis accessed via ref
 
   return null;
 }
