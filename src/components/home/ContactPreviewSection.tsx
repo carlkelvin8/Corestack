@@ -1,8 +1,18 @@
 'use client';
 
+import { useContactForm } from '@/hooks/useContactForm';
 import { companyDetails } from '@/data/companyData';
 
 export function ContactPreviewSection() {
+  const {
+    formData,
+    status,
+    errorMessage,
+    handleChange,
+    handleSubmit,
+    resetStatus
+  } = useContactForm();
+
   return (
     <section id="contact" className="py-24 bg-surface px-margin-mobile md:px-margin-desktop">
       <div className="max-w-container-max mx-auto glass-card rounded-3xl p-8 md:p-16 border-t border-primary/20 relative overflow-hidden">
@@ -41,37 +51,108 @@ export function ContactPreviewSection() {
 
           {/* Contact Form */}
           <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-sm border border-outline-variant/20">
-            <form className="space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-label-sm font-label-sm text-on-surface-variant mb-2">First Name</label>
-                  <input type="text" className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Jane" />
+            {status === 'success' ? (
+              <div className="flex flex-col items-center justify-center text-center space-y-4 py-8">
+                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                  <span className="material-symbols-outlined text-3xl">check_circle</span>
                 </div>
-                <div>
-                  <label className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Last Name</label>
-                  <input type="text" className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Doe" />
+                <h3 className="text-xl font-headline-sm text-on-surface">Message Sent!</h3>
+                <p className="text-on-surface-variant">Your message has been sent successfully. We’ll get back to you soon.</p>
+                <button 
+                  onClick={resetStatus}
+                  className="mt-4 text-primary font-medium hover:underline"
+                >
+                  Send another message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="firstName" className="block text-label-sm font-label-sm text-on-surface-variant mb-2">First Name *</label>
+                    <input 
+                      type="text" 
+                      id="firstName"
+                      name="firstName"
+                      required
+                      value={formData.firstName}
+                      onChange={handleChange}
+                      className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" 
+                      placeholder="Jane" 
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Last Name *</label>
+                    <input 
+                      type="text" 
+                      id="lastName"
+                      name="lastName"
+                      required
+                      value={formData.lastName}
+                      onChange={handleChange}
+                      className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" 
+                      placeholder="Doe" 
+                    />
+                  </div>
                 </div>
-              </div>
 
-              <div>
-                <label className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Work Email</label>
-                <input type="email" className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="jane@company.com" />
-              </div>
+                <div>
+                  <label htmlFor="email" className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Work Email *</label>
+                  <input 
+                    type="email" 
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" 
+                    placeholder="jane@company.com" 
+                  />
+                </div>
 
-              <div>
-                <label className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Company</label>
-                <input type="text" className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" placeholder="Acme Corp" />
-              </div>
+                <div>
+                  <label htmlFor="company" className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Company</label>
+                  <input 
+                    type="text" 
+                    id="company"
+                    name="company"
+                    value={formData.company}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]" 
+                    placeholder="Acme Corp" 
+                  />
+                </div>
 
-              <div>
-                <label className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Message</label>
-                <textarea rows={4} className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] resize-none" placeholder="Tell us about your project..."></textarea>
-              </div>
+                <div>
+                  <label htmlFor="message" className="block text-label-sm font-label-sm text-on-surface-variant mb-2">Message *</label>
+                  <textarea 
+                    rows={4} 
+                    id="message"
+                    name="message"
+                    required
+                    minLength={10}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full bg-surface border-outline-variant/30 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-shadow px-4 py-3 text-on-surface shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] resize-none" 
+                    placeholder="Tell us about your project..."
+                  ></textarea>
+                </div>
 
-              <button type="button" className="w-full bg-primary hover:bg-surface-tint text-on-primary py-3.5 rounded-lg font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md">
-                Send Message
-              </button>
-            </form>
+                {status === 'error' && (
+                  <div className="p-3 bg-error/10 border border-error/20 rounded-lg text-error text-sm">
+                    {errorMessage}
+                  </div>
+                )}
+
+                <button 
+                  type="submit" 
+                  disabled={status === 'loading'}
+                  className="w-full bg-primary hover:bg-surface-tint text-on-primary py-3.5 rounded-lg font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center"
+                >
+                  {status === 'loading' ? 'Sending...' : 'Send Message'}
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
