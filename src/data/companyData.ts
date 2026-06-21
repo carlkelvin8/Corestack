@@ -14,11 +14,11 @@ export const teamMembersData = [
     image: '/images/Kent%20STO%20domingo.png'
   },
   {
-    name: 'Christian Jasmin',
-    role: 'CTO',
-    department: 'Technology & Architecture',
-    description: 'Oversees technology direction, system architecture, and modern digital solutions.',
-    image: '/images/Christian%20Jasmin.png'
+    name: 'Angela Villarmino',
+    role: 'Marketing Specialist',
+    department: 'Strategy & Growth',
+    description: 'Focuses on marketing initiatives, brand strategy, and communication to drive growth.',
+    image: '/images/Angela%20Villarmino.png'
   },
   {
     name: 'Jhoiza',
@@ -47,5 +47,12 @@ export const teamMembersData = [
     department: 'Engineering',
     description: 'Builds intelligent automation workflows that improve efficiency and reduce manual tasks.',
     image: '/images/Karlos%20Rivo.png'
+  },
+  {
+    name: 'Engilbert De Castro Villar',
+    role: 'UI/UX Designer / Marketing',
+    department: 'Design & Marketing',
+    description: 'Crafts intuitive user experiences and visually appealing interfaces while supporting marketing campaigns.',
+    image: '/images/Engilbert%20De%20Castro%20Villar.png'
   }
 ];
