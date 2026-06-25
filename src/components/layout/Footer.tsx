@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useLenis } from 'lenis/react';
@@ -42,9 +43,11 @@ export function Footer() {
         {/* Brand */}
         <div className="col-span-2 flex flex-col gap-6">
           <button onClick={() => scrollToSection('home')} className="flex items-center gap-2 group w-fit">
-            <img
+            <Image
               src="/images/Corestack_Logo.png"
               alt="CoreStack Logo"
+              width={120}
+              height={32}
               className="h-8 w-auto opacity-90"
             />
             <span className="font-headline-md text-headline-md font-bold text-on-secondary-fixed">CoreStack</span>

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 import { teamMembersData as teamMembers } from '@/data/companyData';
 
@@ -17,10 +18,12 @@ export function TeamSection() {
           {teamMembers.map((member, index) => (
             <ScrollReveal key={index} index={index % 3} className="glass-card rounded-2xl overflow-hidden group">
               <div className="aspect-[4/5] overflow-hidden bg-surface-container-high relative">
-                <img 
+                <Image 
                   src={member.image} 
                   alt={`Portrait of ${member.name}, ${member.role}`} 
-                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105" 
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="flex gap-3">

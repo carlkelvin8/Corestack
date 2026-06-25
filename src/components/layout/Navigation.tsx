@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { useScroll } from '@/hooks/useScroll';
 import { useActiveSection } from '@/hooks/useActiveSection';
@@ -54,9 +55,11 @@ export function Navigation() {
             className="flex items-center gap-2 group"
             aria-label="Go to Home"
           >
-            <img
+            <Image
               src="/images/Corestack_Logo.png"
               alt="CoreStack Logo"
+              width={120}
+              height={32}
               className="h-8 w-auto rounded-sm group-hover:opacity-80 transition-opacity"
             />
             <span className="font-headline-md text-headline-md font-bold text-primary tracking-tight">CoreStack</span>

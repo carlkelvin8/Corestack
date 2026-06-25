@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Project } from '@/data/projectsData';
 
@@ -9,10 +10,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="glass-card rounded-2xl overflow-hidden group h-full flex flex-col min-w-[300px] w-[85vw] sm:w-[400px] snap-center shrink-0">
       <div className="aspect-[16/10] overflow-hidden bg-surface-container-high relative border-b border-white/10">
-        <img 
+        <Image 
           src={project.image} 
           alt={project.title} 
-          className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" 
+          fill
+          className="object-cover object-center transition-transform duration-700 group-hover:scale-105"
+          sizes="(max-width: 640px) 85vw, (max-width: 768px) 400px, 400px"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>

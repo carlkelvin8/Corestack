@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Project } from '@/data/projectsData';
 import { ScrollReveal } from '@/components/common/ScrollReveal';
 
@@ -18,11 +19,13 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal index={1} className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden bg-surface-container-high border border-white/10 shadow-2xl">
-          <img 
+        <ScrollReveal index={1} className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden bg-surface-container-high border border-white/10 shadow-2xl relative">
+          <Image 
             src={project.image} 
             alt={`${project.title} overview`}
-            className="w-full h-full object-cover object-center"
+            fill
+            className="object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 90vw"
           />
         </ScrollReveal>
       </div>
