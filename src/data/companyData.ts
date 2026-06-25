@@ -21,6 +21,13 @@ export const teamMembersData = [
     image: '/images/Joshua.png'
   },
   {
+    name: 'Charles Anselmo',
+    role: 'Senior Data Analyst',
+    department: 'Data & Research',
+    description: 'PhD student at DLSU, professor, and researcher driving data-driven insights and advanced analytics for CoreStack.',
+    image: '/images/Charles.png'
+  },
+  {
     name: 'Angela Villarmino',
     role: 'Marketing Specialist',
     department: 'Strategy & Growth',
