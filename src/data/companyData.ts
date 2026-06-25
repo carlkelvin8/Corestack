@@ -28,6 +28,13 @@ export const teamMembersData = [
     image: '/images/Charles.png'
   },
   {
+    name: 'Kate Monera',
+    role: 'Marketing Specialist',
+    department: 'Strategy & Growth',
+    description: 'Drives marketing campaigns, brand storytelling, and digital engagement to strengthen CoreStack\'s market presence.',
+    image: '/images/Kate.png'
+  },
+  {
     name: 'Angela Villarmino',
     role: 'Marketing Specialist',
     department: 'Strategy & Growth',
