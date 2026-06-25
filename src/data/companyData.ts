@@ -14,6 +14,13 @@ export const teamMembersData = [
     image: '/images/Kent%20STO%20domingo.png'
   },
   {
+    name: 'Joshua Abella',
+    role: 'COO',
+    department: 'Executive Leadership',
+    description: 'Oversees operations, drives organizational efficiency, and ensures seamless execution of company initiatives.',
+    image: '/images/Joshua.png'
+  },
+  {
     name: 'Angela Villarmino',
     role: 'Marketing Specialist',
     department: 'Strategy & Growth',
