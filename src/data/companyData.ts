@@ -56,13 +56,6 @@ export const teamMembersData = [
     image: '/images/venice.png'
   },
   {
-    name: 'James Arjhon',
-    role: 'Marketing Specialist',
-    department: 'Research & Leads',
-    description: 'Focuses on market research, lead generation, digital communication, and campaign support.',
-    image: '/images/James%20Arjhon.png'
-  },
-  {
     name: 'Karlos Rivo',
     role: 'AI Automation Engineer',
     department: 'Engineering',
