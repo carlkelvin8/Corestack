@@ -25,7 +25,7 @@ export function TeamSection() {
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 dark:from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <div className="flex gap-3">
                     <button
                       onClick={() => {
@@ -34,7 +34,7 @@ export function TeamSection() {
                         window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' });
                       }}
                       aria-label="Contact this team member"
-                      className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-primary transition-colors"
+                      className="w-8 h-8 rounded-full bg-white/20 dark:bg-on-surface/20 backdrop-blur-md flex items-center justify-center text-white dark:text-on-surface hover:bg-primary dark:hover:bg-primary transition-colors"
                     >
                       <span className="material-symbols-outlined text-[18px]">mail</span>
                     </button>

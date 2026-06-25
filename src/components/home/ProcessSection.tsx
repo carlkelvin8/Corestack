@@ -10,19 +10,21 @@ export function ProcessSection() {
         <div className="text-center mb-16">
           <span className="font-label-sm text-label-sm text-primary uppercase tracking-wider mb-2 block">Methodology</span>
           <h2 className="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface">How We Work</h2>
+          <p className="text-on-surface-variant text-body-md mt-4 max-w-2xl mx-auto">
+            From discovery to continuous improvement — our proven process ensures every project delivers real results.
+          </p>
         </div>
 
         <div className="grid md:grid-cols-4 gap-8 relative">
-          {/* Connecting Line (Desktop only) */}
           <div className="hidden md:block absolute top-12 left-[12.5%] right-[12.5%] h-0.5 bg-outline-variant/30 -z-10 w-3/4 mx-auto"></div>
 
           {steps.map((step, index) => (
-            <ScrollReveal key={index} index={index} className="text-center relative">
-              <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm">
-                <span className="material-symbols-outlined text-[32px]">{step.icon}</span>
+            <ScrollReveal key={index} index={index} className="text-center relative group">
+              <div className="w-24 h-24 mx-auto rounded-2xl glass-card flex items-center justify-center text-primary mb-6 shadow-sm group-hover:shadow-md group-hover:border-primary/30 transition-all duration-300">
+                <span className="material-symbols-outlined text-[32px] group-hover:scale-110 transition-transform duration-300">{step.icon}</span>
               </div>
               <h3 className="font-headline-md text-xl text-on-surface mb-2">{step.title}</h3>
-              <p className="text-on-surface-variant text-sm">{step.description}</p>
+              <p className="text-on-surface-variant text-sm leading-relaxed">{step.description}</p>
             </ScrollReveal>
           ))}
         </div>

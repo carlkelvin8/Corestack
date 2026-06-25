@@ -25,14 +25,14 @@ export function ProjectCarousel() {
       <div className="hidden md:flex absolute -top-16 right-0 gap-3">
         <button 
           onClick={scrollLeft}
-          className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-on-surface hover:bg-white/5 hover:border-white/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-10 h-10 rounded-full border border-white/20 dark:border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-white/5 dark:hover:bg-surface-variant/50 hover:border-white/40 dark:hover:border-outline-variant/50 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="Previous project"
         >
           <span className="material-symbols-outlined text-[20px]">arrow_back</span>
         </button>
         <button 
           onClick={scrollRight}
-          className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-on-surface hover:bg-white/5 hover:border-white/40 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
+          className="w-10 h-10 rounded-full border border-white/20 dark:border-outline-variant/30 flex items-center justify-center text-on-surface hover:bg-white/5 dark:hover:bg-surface-variant/50 hover:border-white/40 dark:hover:border-outline-variant/50 transition-all focus:outline-none focus:ring-2 focus:ring-primary"
           aria-label="Next project"
         >
           <span className="material-symbols-outlined text-[20px]">arrow_forward</span>

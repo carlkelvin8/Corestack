@@ -20,7 +20,7 @@ export function ProjectFeatureGrid({ project }: ProjectFeatureGridProps) {
             <ScrollReveal 
               key={index} 
               index={index}
-              className="glass-card p-8 rounded-2xl border border-white/5 bg-surface/50 flex flex-col items-center text-center"
+              className="glass-card p-8 rounded-2xl border border-white/5 dark:border-outline-variant/20 bg-surface/50 flex flex-col items-center text-center"
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-4">
                 <span className="material-symbols-outlined">check_circle</span>

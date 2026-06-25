@@ -19,7 +19,7 @@ export function ProjectHero({ project }: ProjectHeroProps) {
           </h1>
         </ScrollReveal>
 
-        <ScrollReveal index={1} className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden bg-surface-container-high border border-white/10 shadow-2xl relative">
+        <ScrollReveal index={1} className="w-full aspect-video md:aspect-[21/9] rounded-3xl overflow-hidden bg-surface-container-high border border-white/10 dark:border-outline-variant/30 shadow-2xl relative">
           <Image 
             src={project.image} 
             alt={`${project.title} overview`}

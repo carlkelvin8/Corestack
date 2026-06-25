@@ -114,7 +114,7 @@ export function HeroSection() {
         <div className="relative w-full aspect-square lg:aspect-auto lg:h-[650px] flex items-center justify-center">
           
           {/* Main Dashboard Card */}
-          <div className="absolute inset-0 m-auto w-[92%] h-[88%] bg-surface-container-lowest/60 backdrop-blur-xl border border-white/60 rounded-3xl shadow-[0_8px_40px_0_rgba(0,0,0,0.08)] overflow-hidden flex flex-col p-6 lg:p-7 animate-float">
+          <div className="absolute inset-0 m-auto w-[92%] h-[88%] bg-surface-container-lowest/60 backdrop-blur-xl border border-white/60 dark:border-outline-variant/30 rounded-3xl shadow-[0_8px_40px_0_rgba(0,0,0,0.08)] overflow-hidden flex flex-col p-6 lg:p-7 animate-float">
             
             {/* Header */}
             <div className="flex items-center justify-between mb-6 pb-4 border-b border-outline-variant/20">
@@ -133,7 +133,7 @@ export function HeroSection() {
             <div className="flex-1 grid grid-cols-2 gap-5">
               
               {/* Bar Chart */}
-              <div className="bg-surface-container-low/50 rounded-2xl p-5 border border-white/40 flex flex-col justify-end gap-3 relative overflow-hidden group">
+              <div className="bg-surface-container-low/50 rounded-2xl p-5 border border-white/40 dark:border-outline-variant/20 flex flex-col justify-end gap-3 relative overflow-hidden group">
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-xs font-label-sm text-on-surface-variant font-semibold">Revenue Growth</span>
                   <span className="text-[10px] font-label-sm text-success-green">+32.5%</span>
@@ -149,7 +149,7 @@ export function HeroSection() {
 
               {/* AI Workflow */}
               <div className="flex flex-col gap-4 h-full">
-                <div className="bg-surface-container-low/50 rounded-2xl p-4 border border-white/40 flex-1 flex flex-col justify-center gap-3 hover:border-primary/20 transition-colors duration-300">
+                <div className="bg-surface-container-low/50 rounded-2xl p-4 border border-white/40 dark:border-outline-variant/20 flex-1 flex flex-col justify-center gap-3 hover:border-primary/20 transition-colors duration-300">
                   <div className="flex items-center gap-2 mb-1">
                     <span className="material-symbols-outlined text-[14px] text-primary">account_tree</span>
                     <span className="text-[10px] font-label-sm text-on-surface-variant uppercase tracking-wider">AI Pipeline</span>
@@ -163,13 +163,13 @@ export function HeroSection() {
                     </div>
                   </div>
                   <div className="mt-2 flex gap-2">
-                    <span className="px-2 py-0.5 bg-success-green/10 text-success-green text-[10px] rounded-full font-label-sm border border-success-green/20">Active</span>
-                    <span className="px-2 py-0.5 bg-primary/10 text-primary text-[10px] rounded-full font-label-sm border border-primary/20">Processing</span>
+                        <span className="px-2.5 py-0.5 bg-success-green/10 text-success-green text-[10px] rounded-full font-label-sm border border-success-green/20">Active</span>
+                        <span className="px-2.5 py-0.5 bg-primary/10 text-primary text-[10px] rounded-full font-label-sm border border-primary/20">Processing</span>
                   </div>
                 </div>
                 
                 <div className="bg-gradient-to-r from-primary/[0.04] to-surface-tint/[0.04] rounded-2xl p-4 border border-primary/10 flex items-center gap-3 hover:border-primary/20 transition-colors duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-surface-tint flex items-center justify-center text-white shadow-lg shadow-primary/20">
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-surface-tint flex items-center justify-center text-on-primary shadow-lg shadow-primary/20">
                     <span className="material-symbols-outlined text-[22px]">smart_toy</span>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -201,7 +201,7 @@ export function HeroSection() {
           {/* Floating Widgets */}
           
           {/* Widget 1 - Status */}
-          <div className="absolute top-[8%] -left-3 lg:-left-8 bg-surface/90 backdrop-blur-xl p-3.5 rounded-2xl border border-white/80 shadow-xl flex items-center gap-3 animate-float-delayed z-20 hover:shadow-2xl transition-shadow duration-300">
+          <div className="absolute top-[8%] -left-3 lg:-left-8 bg-surface/90 backdrop-blur-xl p-3.5 rounded-2xl border border-white/80 dark:border-outline-variant/40 shadow-xl flex items-center gap-3 animate-float-delayed z-20 hover:shadow-2xl transition-shadow duration-300">
             <div className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success-green opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-success-green"></span>
@@ -213,7 +213,7 @@ export function HeroSection() {
           </div>
 
           {/* Widget 2 - Processing */}
-          <div className="absolute bottom-[18%] -right-3 lg:-right-8 bg-surface/90 backdrop-blur-xl p-4 rounded-2xl border border-white/80 shadow-xl w-56 animate-float z-20 hover:shadow-2xl transition-shadow duration-300" style={{ animationDelay: '1.5s' }}>
+          <div className="absolute bottom-[18%] -right-3 lg:-right-8 bg-surface/90 backdrop-blur-xl p-4 rounded-2xl border border-white/80 dark:border-outline-variant/40 shadow-xl w-56 animate-float z-20 hover:shadow-2xl transition-shadow duration-300" style={{ animationDelay: '1.5s' }}>
             <div className="flex items-center justify-between mb-2">
               <span className="text-[10px] font-label-sm font-semibold text-on-surface uppercase tracking-wider">Data Processing</span>
               <span className="text-primary font-bold text-xs">99.9%</span>
@@ -226,7 +226,7 @@ export function HeroSection() {
           </div>
 
           {/* Widget 3 - Live - positioned on right side */}
-          <div className="absolute top-[55%] -right-1 lg:-right-5 bg-surface/90 backdrop-blur-xl p-3 rounded-2xl border border-white/80 shadow-xl animate-float z-20 hover:shadow-2xl transition-shadow duration-300" style={{ animationDelay: '0.8s' }}>
+          <div className="absolute top-[55%] -right-1 lg:-right-5 bg-surface/90 backdrop-blur-xl p-3 rounded-2xl border border-white/80 dark:border-outline-variant/40 shadow-xl animate-float z-20 hover:shadow-2xl transition-shadow duration-300" style={{ animationDelay: '0.8s' }}>
             <div className="flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
               <span className="text-[9px] font-label-sm text-on-surface-variant uppercase tracking-wider">Live</span>

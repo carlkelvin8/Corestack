@@ -17,7 +17,7 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
           </p>
           <Link 
             href="/#projects"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-label-lg rounded-full hover:bg-primary-light transition-colors"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-on-primary font-label-lg rounded-full hover:bg-surface-tint transition-colors"
           >
             <span className="material-symbols-outlined text-[20px]">arrow_back</span>
             Back to Projects

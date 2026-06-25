@@ -6,6 +6,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import { useScroll } from '@/hooks/useScroll';
 import { useActiveSection } from '@/hooks/useActiveSection';
 import { useLenis } from 'lenis/react';
+import { useTheme } from '@/contexts/ThemeContext';
 
 const navItems = [
   { id: 'home', label: 'Home' },
@@ -21,6 +22,7 @@ export function Navigation() {
   const pathname = usePathname();
   const router = useRouter();
   const lenis = useLenis();
+  const { theme, toggleTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function scrollToSection(id: string) {
@@ -79,7 +81,17 @@ export function Navigation() {
           </div>
 
           {/* Desktop CTA */}
-          <div className="hidden md:flex items-center">
+          <div className="hidden md:flex items-center gap-3">
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-surface-variant text-on-surface-variant"
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              <span className="material-symbols-outlined text-[22px]">
+                {theme === 'light' ? 'dark_mode' : 'light_mode'}
+              </span>
+            </button>
             <button
               onClick={() => scrollToSection('contact')}
               className="bg-primary hover:bg-surface-tint text-on-primary px-6 py-2.5 rounded-full font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm hover:shadow-md"
@@ -120,7 +132,16 @@ export function Navigation() {
               </button>
             ))}
 
-            <div className="pt-3 mt-1 border-t border-outline-variant/20">
+            <div className="pt-3 mt-1 border-t border-outline-variant/20 flex flex-col gap-2">
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-center gap-2 text-on-surface-variant hover:text-primary px-6 py-3 rounded-xl font-body-md font-medium transition-all duration-300 hover:bg-surface-variant"
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  {theme === 'light' ? 'dark_mode' : 'light_mode'}
+                </span>
+                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+              </button>
               <button
                 onClick={() => scrollToSection('contact')}
                 className="w-full bg-primary hover:bg-surface-tint text-on-primary px-6 py-3 rounded-full font-body-md font-medium transition-all duration-300 active:scale-95 shadow-sm"

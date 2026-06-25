@@ -5,6 +5,8 @@ import { ScrollToTop } from "@/components/common/ScrollToTop";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { ChatBot } from "@/components/chat/ChatBot";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -84,15 +86,18 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} ${hankenGrotesk.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-        <JsonLd />
-        <LenisProvider>
-          <Navigation />
-          <ScrollToTop />
-          <main className="flex flex-col min-h-screen">
-            {children}
-          </main>
-          <Footer />
-        </LenisProvider>
+        <ThemeProvider>
+          <JsonLd />
+          <LenisProvider>
+            <Navigation />
+            <ScrollToTop />
+            <main className="flex flex-col min-h-screen">
+              {children}
+            </main>
+            <Footer />
+            <ChatBot />
+          </LenisProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -9,7 +9,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="glass-card rounded-2xl overflow-hidden group h-full flex flex-col min-w-[300px] w-[85vw] sm:w-[400px] snap-center shrink-0">
-      <div className="aspect-[16/10] overflow-hidden bg-surface-container-high relative border-b border-white/10">
+      <div className="aspect-[16/10] overflow-hidden bg-surface-container-high relative border-b border-white/10 dark:border-outline-variant/20">
         <Image 
           src={project.image} 
           alt={project.title} 
